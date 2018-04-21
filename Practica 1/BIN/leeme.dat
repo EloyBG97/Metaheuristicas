@@ -1,0 +1,9 @@
+Para ejecutar el software desarrollado debemos ejecutar las siguientes ordenes.
+Para ejecutar el procedimiento de busqueda local:
+	./BIN/AprendizajeBLP1 <ruta_fichero> <seed_aleatorio_opcional>
+
+Para ejecutar el procedimiento de RELIEF:
+	./BIN/AprendizajeRELIEFP1 <ruta_fichero>
+
+Para ejecutar el procedimiento de Clasificador 1-NN:
+	./BIN/Clasificador1NN <ruta_fichero>
