@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+ \begin{document}
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+    \REQUIRE $N \in N$, ElitistCheck
+
+    \STATE Rpower $\leftarrow$ 2
+    \STATE Rnorm $\leftarrow$  2
+    \STATE BestChart $\leftarrow \emptyset$
+    \STATE MeanChart $\leftarrow \emptyset$
+
+    \STATE V = $\{v \in R^{N*dim}$ tal que $\forall i,j \in N$ tal que $i < N \wedge j < dim$, $v_{ij} = 0\}$
+    \STATE X = $\{x \in R^{N*dim}$ tal que $\forall i,j \in N$ tal que $i < N \wedge j < dim$, $x_{ij} \in U(0,1)\}$
+
+    \FOR{i = 0 to iteration}
+        \STATE fitness = $\{fitness$ tal que $\forall i < N$, $fitness = \cup_{i=1}^N f(X_i)\}$
+
+        \STATE best = min(fitness)
+
+
+        \IF{iteration == 1}
+            \STATE Fbest = best
+            \STATE Lbest = x tal que $f(x) = best$
+        \ENDIF
+
+        \IF{$best \leq Fbest$}
+            \STATE Fbest = best
+            \STATE Lbest = x tal que $f(x) = best$
+        \ENDIF
+
+
+        \STATE BestChart = $BestChart \cup Fbest$
+        \STATE MeanChart = $MeanChart \cup mean(fitness)$
+
+        \STATE M = massCalculation(fitness)
+
+        \STATE G = Gconstant(iteration, max\_it)
+
+        \STATE a = Gfield(M, X, G, Rpower, ElitistCheck, iteration, max\_it);
+
+        \STATE [X, V] = move(X, a, V, fitness) 
+    \ENDFOR
+
+    \RETURN [Fbest, Lbest, BestChart, MeanChart]
+\end{algorithmic}
+\caption{GravitationalSearch}
+\end{algorithm}
+ \end{document}

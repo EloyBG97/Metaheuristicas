@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+
+\begin{document}
+\begin{algorithm}
+\begin{algorithmic}[1]
+    \REQUIRE $training$: conjunto de entrenamiento
+    \FOR{i = 0 to $\#training$}
+	\STATE aux = training(i)
+	\STATE mejor\_amigo = Amigo(aux, training)
+	\STATE peor\_enemigo = Enemigo(aux, training)
+
+	\FOR{j=0 to $\#training(0)$}
+		\STATE quality\_enemigo = peor\_enemigo(j) 
+		\STATE quality\_amigo = mejor\_amigo(j)
+
+		\STATE quality = aux(j)
+		\STATE solucion(j) = solucion(j) + $\sqrt{quality^2 - quality\_enemigo^2} - \sqrt{quality^2 - quality\_amigo^2}$
+	\ENDFOR
+    \ENDFOR
+
+     \STATE $Normalization_{overmax}(solucion)$
+
+    \RETURN $solucion, fObjetivo(solucion)$
+\end{algorithmic}
+\caption{RELIEF}
+\end{algorithm}
+\end{document}
+

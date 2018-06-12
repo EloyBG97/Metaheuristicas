@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+
+\begin{document}
+\begin{algorithm}
+\begin{algorithmic}[1]
+	\REQUIRE $training$: conjunto de entrenamiento, $seed$
+
+	\STATE ejecucionesMax = 1500
+	\STATE vecinosMax = 10 * $\#training_0$
+	\STATE exitosMax = $\#training_0$
+	\STATE $\mu$ = 0.3
+	
+	\REPEAT
+		\STATE solucion = randomGenerator(N)
+
+		\STATE costeSolucion = fObjetivo(solucion, training, seed)
+
+		\STATE $T_{start} = \frac{\mu costeSolucion}{-\log{\mu}}$
+	\UNTIL{$T_{start} > T_{final}$}
+
+	\STATE T = $T_{start}$
+	
+	\STATE mejorSolucion = solucion
+	\STATE costeMejorSolucion = costeSolucion
+	\STATE $\beta$ = $\frac{T_{start} - T_{final}}{\frac{T_{start}*T{final}*ejecucionesMax}{vecinosMax^2}}$
+
+	\REPEAT
+		\STATE $vecinos_{generados}$ = 0
+		\STATE $vecinos_{exitos}$ = 0
+
+		\REPEAT
+			\STATE solucionAux = generarVecino(solucion,  $vecinos_{generados}$ mod \#solucion, seed)
+
+			\STATE costeAux = fObjetivo(solucionAux, training)
+
+			\STATE diferenciaCoste = costeAux - costeSolucion
+			\IF{diferenciaCoste $<$ 0 ó $x \in U(0,1) \leq (-diferenciaCoste / T)$}
+				\STATE solucion = solucionAux
+				\STATE costeSolucion = costeAux
+
+				\IF{costeSolucion $>$  costeMejorSolucion}
+					\STATE mejorSolucion = solucion
+					\STATE costeMejorSolucion = costeSolucion
+				\ENDIF
+
+			\STATE $vecinos_{exitos}$ := $vecinos_{exitos}$ + 1
+			\ENDIF
+
+			\STATE $vecinos_{generados}$ := $vecinos_{generados}$ + 1
+		\UNTIL{$vecinos_{generados} \geq$ vecinosMax ó $vecinos_{exitos} \geq$ vecinosExitosMax}
+
+		T = $\frac{T}{1 + \beta * T}$
+	\UNTIL{$T \leq T_{final}$}
+
+	
+	
+	\RETURN $(mejorSolucion, costeMejorSolucion)$
+\end{algorithmic}
+\caption{SimulatedAnneling}
+\end{algorithm}
+\end{document}
+

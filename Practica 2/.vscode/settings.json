@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "chrono": "cpp",
+        "slist": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "limits": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
+}

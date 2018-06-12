@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+
+\begin{document}
+\begin{algorithm}
+\begin{algorithmic}[1]
+    \REQUIRE $solucion$, $posicionMutada$, $seed$
+
+
+
+    \STATE solucion(posicionMutada) := 	solucion(posicionMutada) + $x \in U(0,1)$
+
+    \IF{solucion(posicionMutada) > 1}
+	\STATE solucion(posicionMutada) = 1 
+    \ENDIF
+
+    \IF{solucion(posicionMutada) < 0}
+	\STATE solucion(posicionMutada) = 0 
+    \ENDIF
+
+    \RETURN $solucion$
+\end{algorithmic}
+\caption{generarVecino}
+\end{algorithm}
+\end{document}
+

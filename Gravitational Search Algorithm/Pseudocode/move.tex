@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+ \begin{document}
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+    \REQUIRE X, a, V
+    [N, dim] = \{N, dim tales que $X \in R^{N * dim}$\}
+    \STATE rand = \{rand tal que $rand \in U(0,1)$\}
+
+    \STATE V = $rand * V + a$
+    \STATE X = X + V
+
+    \RETURN X, V
+\end{algorithmic}
+\caption{move}
+\end{algorithm}
+\end{document}

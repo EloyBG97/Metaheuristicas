@@ -1,0 +1,14 @@
+MEX {
+	global:
+		mexFunction;
+		emlrtMexFcnProperties;
+		move;
+		emxEnsureCapacity;
+		emxFree_real_T;
+		emxInit_real_T;
+		move_initialize;
+		move_terminate;
+		move_atexit;
+	local:
+		*;
+};

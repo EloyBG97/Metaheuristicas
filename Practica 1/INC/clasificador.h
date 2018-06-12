@@ -8,8 +8,8 @@
 
 using namespace std;
 
-pair<float, float> fObjetivo(const vector<individuo::value_type>&W, const muestra &training, const muestra &test);
-float tasaClas(const vector<individuo::value_type>&W, const muestra &training, const muestra &test);
+pair<float, float> fObjetivo(const vector<individuo::value_type>&W, const muestra &training);
+float tasaClas(const vector<individuo::value_type>&W, const muestra &training);
 float tasaRed(const vector<individuo::value_type>&W, const float &tasa);
 muestra::size_type validacionTraining(const vector<individuo::value_type>&W, const muestra &training);
 muestra::size_type validacionTest(const vector<individuo::value_type>&W, const muestra &training, const muestra &test);

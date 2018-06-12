@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+
+\begin{document}
+\begin{algorithm}
+\begin{algorithmic}[1]
+    \REQUIRE $solucion$, $nMutaciones$, $seed$
+
+    \FOR{i=0 to nMutaciones}
+	\REPEAT
+		\STATE posicionesMutadas(i) = $x \in U(0,\#solucion)$
+	\UNTIL{$x \notin posicionesMutadas$}
+
+	solucion(posicionesMutadas(i)) := solucion(posicionesMutadas(i)) + $x \in U(0,1)$
+   
+
+	    \IF{solucion(posicionMutada) $>$ 1}
+		\STATE solucion(posicionMutada) = 1 
+	    \ENDIF
+
+	    \IF{solucion(posicionMutada) $<$ 0}
+		\STATE solucion(posicionMutada) = 0 
+	    \ENDIF
+	\ENDFOR
+
+    \RETURN $solucion$
+\end{algorithmic}
+\caption{generarVecinoFuerte}
+\end{algorithm}
+\end{document}
+

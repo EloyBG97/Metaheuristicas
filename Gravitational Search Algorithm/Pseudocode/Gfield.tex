@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+ \begin{document}
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+    \REQUIRE M, X, G, Rnorm, Rpower, iteration, max\_it
+    \STATE [N, dim] = \{N, dim tales que $X \in R^{N * dim}$\}
+    \STATE final\_per = 2
+
+    \STATE kbest = $final\_per + (1 - \frac{1 - iteration}{max\_it}) * (100 - final\_per)$
+    \STATE kbest = round($N * \frac{kbest}{100}$)
+
+    \STATE [MS, ds] = sort(M, \'descend\')
+
+    \STATE E = $\{e \in R^{N*dim}$ tal que $\forall i,j \in N$ tal que $i < N \wedge j < dim$, $e_{ij} = 1\}$
+
+    \FOR{i=1 to N}
+        \FOR{ii=i to kbest}
+            \STATE j = $ds_{ii}$
+            \IF{$i \neq j$}
+                \STATE R = $|X_i - X_j|_{Rnorm}$
+
+                \FOR{k=1 to dim}
+                    \STATE $E_{ik}$ = $E_{ik}$ + rand * $M_j$ * ($X_{jk}$ - $X_{ik}$) * $\frac{1}{R^{Rpower} + \epsilon}$
+                \ENDFOR
+            \ENDIF
+        \ENDFOR
+    \ENDFOR
+
+    a = E * G
+    \RETURN X, V
+\end{algorithmic}
+\caption{Gfield}
+\end{algorithm}
+\end{document}

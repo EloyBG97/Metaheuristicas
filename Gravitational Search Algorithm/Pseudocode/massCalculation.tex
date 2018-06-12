@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+ \begin{document}
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+    \REQUIRE fit
+
+    \STATE Fmax = max(fit)
+    \STATE Fmin = min(fit)
+    \STATE Fmean = mean(fit)
+    \STATE N = \#fit
+
+    \IF{Fmax == Fmin} 
+        \STATE M = $\{m \in R^{N}$ tal que $\forall i \in N$ tal que $i < N$, $m_{i} = 1\}$
+    \ELSE
+        \STATE best = $\{b \in R^{N}$ tal que $\forall i \in N$ tal que $i < N$, $b_{i} = Fmin\}$
+        \STATE worst = $\{w \in R^{N}$ tal que $\forall i \in N$ tal que $i < N$, $w_{i} = Fmax\}$
+
+        \STATE M = $\frac{fit - best}{best - worst}$
+    \ENDIF
+
+    M = $\frac{M}{\sum_{i=1}^N M}$
+
+    \RETURN M
+\end{algorithmic}
+\caption{massCalculation}
+\end{algorithm}
+ \end{document}

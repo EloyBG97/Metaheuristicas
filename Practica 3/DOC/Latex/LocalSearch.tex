@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+
+\begin{document}
+\begin{algorithm}
+\begin{algorithmic}[1]
+    \REQUIRE $solucion$ tamanio de la solucion, $training$: conjunto de entrenamiento, $seed$
+
+
+
+    \REPEAT
+	\STATE costeSolucion = fObjetivo(solucion, training)
+
+	\REPEAT
+		\STATE solucionAux = generarVeciono(solucion,i mod \#solucion, seed)
+
+		\STATE costeAux = fObjetivo(solucion, training)
+
+		\STATE i:= i + 1
+	\UNTIL{costeAux $>$ costeSolucion ó i $geq$ 20 * nCaracteristicas}
+	
+	\IF{costeSolucion > costeAux}
+		\STATE solucion = aux
+		\STATE costSolucion = costeAux
+	\ENDIF
+
+	\STATE nEjecuciones:= nEjecuciones + 1
+	
+    \UNTIL{costeAux $leq$ costeSolucion ó nEjecuciones $geq$ 1000}
+		
+
+    \RETURN $(solucion, costesolucion$
+\end{algorithmic}
+\caption{LocalSearch}
+\end{algorithm}
+\end{document}
+

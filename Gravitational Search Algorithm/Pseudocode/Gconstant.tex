@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+ \begin{document}
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+    \REQUIRE iteration, max\_it
+
+    \STATE $\alpha$ = 20
+    \STATE $G_0$ = 100
+
+    \STATE G = $G_0 * e^{-\alpha * \frac{iteration}{max\_it}}$
+
+    \RETURN G
+\end{algorithmic}
+\caption{Gconstant}
+\end{algorithm}
+ \end{document}

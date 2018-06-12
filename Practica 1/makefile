@@ -1,4 +1,4 @@
-SRC = ./FUENTES
+SRC = ./SRC
 BIN = ./BIN
 INC = ./INC
 OBJ = ./OBJ
